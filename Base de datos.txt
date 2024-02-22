@@ -1,0 +1,24 @@
+Create database bdusuarios;
+use bdusuarios;
+
+create table sexo (
+id int auto_increment not null primary key,
+sexo varchar(50)
+);
+
+
+insert into sexo (sexo) values ("Masculino");
+insert into sexo (sexo) values ("Femenino");
+
+select * from sexo;
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nombres VARCHAR(100),
+    apellidos VARCHAR(100),
+    fksexo INT,
+    edad INT,
+    fnacimiento DATE,
+    foto LONGBLOB,
+    FOREIGN KEY (fksexo) REFERENCES sexo(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
